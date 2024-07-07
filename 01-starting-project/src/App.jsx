@@ -1,8 +1,13 @@
 import Header from "./components/Header/Header.jsx";
 import { CORE_CONCEPTS } from "./data";
 import CoreConcept from "./components/CoreConcept.jsx";
+import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  function selectHandler() {
+    console.log("Hello World - selected");
+  }
+
   return (
     <div>
       <Header />
@@ -21,7 +26,17 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
-        <h2>Time to get started!</h2>
+
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={selectHandler}>Components</TabButton>
+            <TabButton onSelect={selectHandler}>Jsx</TabButton>
+            <TabButton onSelect={selectHandler}>Props</TabButton>
+            <TabButton onSelect={selectHandler}>State</TabButton>
+          </menu>
+          Dynamic Content
+        </section>
       </main>
     </div>
   );
@@ -39,3 +54,6 @@ export default App;
 
 // If the object and the props has same exact key name, then we can also use the rest operator to call and output the data
 // As used in the CoreConcept component
+
+// TabButton Custom Component: using a concept called "Component Composition"
+// Component Composition: Where a component wraps component or other content, as used in "TabBUtton"
