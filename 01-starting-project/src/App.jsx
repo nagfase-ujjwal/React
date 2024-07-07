@@ -1,47 +1,13 @@
-import AtomImg from "./assets/react-core-concepts.png";
+import Header from "./components/Header/Header.jsx";
 import { CORE_CONCEPTS } from "./data";
-
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Header() {
-  const description = reactDescriptions[getRandomInt(2)];
-
-  return (
-    <>
-      <header>
-        <img src={AtomImg} alt="Stylized atom" />
-        {console.log(AtomImg)}
-        <h1>React Essentials</h1>
-        <p>
-          {description} React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
-    </>
-  );
-}
-
-// Normally we pass and use props with a single parameter
-// function CoreConcept(props) {
-// But we can also destructure the data passed from REST operator & props and this will work with both.
-function CoreConcept({ title: TITLE, image: IMAGE, description: DESCRIPTION }) {
-  const altText = "No image found";
-  return (
-    <>
-      <li>
-        <img src={IMAGE} alt={altText} />
-        <h3>{TITLE}</h3>
-        <p>{DESCRIPTION}</p>
-      </li>
-    </>
-  );
-}
+import CoreConcept from "./components/CoreConcept.jsx";
+import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  function selectHandler() {
+    console.log("Hello World - selected");
+  }
+
   return (
     <div>
       <Header />
@@ -60,7 +26,17 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
-        <h2>Time to get started!</h2>
+
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={selectHandler}>Components</TabButton>
+            <TabButton onSelect={selectHandler}>Jsx</TabButton>
+            <TabButton onSelect={selectHandler}>Props</TabButton>
+            <TabButton onSelect={selectHandler}>State</TabButton>
+          </menu>
+          Dynamic Content
+        </section>
       </main>
     </div>
   );
@@ -78,3 +54,6 @@ export default App;
 
 // If the object and the props has same exact key name, then we can also use the rest operator to call and output the data
 // As used in the CoreConcept component
+
+// TabButton Custom Component: using a concept called "Component Composition"
+// Component Composition: Where a component wraps component or other content, as used in "TabBUtton"
