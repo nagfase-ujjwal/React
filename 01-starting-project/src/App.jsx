@@ -1,45 +1,6 @@
-import AtomImg from "./assets/react-core-concepts.png";
+import Header from "./components/Header/Header.jsx";
 import { CORE_CONCEPTS } from "./data";
-
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Header() {
-  const description = reactDescriptions[getRandomInt(2)];
-
-  return (
-    <>
-      <header>
-        <img src={AtomImg} alt="Stylized atom" />
-        {console.log(AtomImg)}
-        <h1>React Essentials</h1>
-        <p>
-          {description} React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
-    </>
-  );
-}
-
-// Normally we pass and use props with a single parameter
-// function CoreConcept(props) {
-// But we can also destructure the data passed from REST operator & props and this will work with both.
-function CoreConcept({ title: TITLE, image: IMAGE, description: DESCRIPTION }) {
-  const altText = "No image found";
-  return (
-    <>
-      <li>
-        <img src={IMAGE} alt={altText} />
-        <h3>{TITLE}</h3>
-        <p>{DESCRIPTION}</p>
-      </li>
-    </>
-  );
-}
+import CoreConcept from "./components/CoreConcept.jsx";
 
 function App() {
   return (
