@@ -19,6 +19,7 @@ export default function TabButton({ children, onSelect }) {
   //   function clickHandler() {
   //     console.log("Hello World");
   //   }
+  console.log("TabButton component being executed");
 
   return (
     <>

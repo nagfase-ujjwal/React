@@ -16,7 +16,7 @@ export default function Header() {
     <>
       <header>
         <img src={AtomImg} alt="Stylized atom" />
-        {console.log(AtomImg)}
+        {/* {console.log(AtomImg)} */}
         <h1>React Essentials</h1>
         <p>
           {description} React concepts you will need for almost any app you are
