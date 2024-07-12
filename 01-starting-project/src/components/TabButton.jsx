@@ -15,7 +15,7 @@
 // 2. The children prop will refer to the text between your custom component
 
 // We can also desrtructure the children from the prop directly and use it
-export default function TabButton({ children, onSelect }) {
+export default function TabButton({ children, onSelect, isSelected }) {
   //   function clickHandler() {
   //     console.log("Hello World");
   //   }
@@ -25,7 +25,9 @@ export default function TabButton({ children, onSelect }) {
     <>
       <li>
         {/* <button onClick={clickHandler}>{children}</button> */}
-        <button onClick={onSelect}> {children} </button>
+        <button className={isSelected ? "active" : null} onClick={onSelect}>
+          {children}
+        </button>
       </li>
     </>
   );
